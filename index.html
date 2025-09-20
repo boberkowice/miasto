@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Boberkowice - oficjalna strona</title>
 
+  <!-- Pixel / 'minecraft-like' font from Google Fonts (Press Start 2P) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
@@ -18,19 +19,22 @@
       font-family: 'Press Start 2P', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      background: #000 url('miasto.png') center/cover no-repeat fixed;
+      background: #000 url('miasto.png') center/cover no-repeat fixed; /* upewnij się, że miasto.png jest obok tego pliku */
       color:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
     }
 
+    /* półprzezroczysty overlay dla lepszego kontrastu */
     .overlay{
-      position:fixed;
-      inset:0;
-      background: linear-gradient(to bottom right, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
+      flex:1;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:2rem;
       box-sizing:border-box;
+      background: linear-gradient(to bottom right, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
     }
 
     .card{
@@ -46,10 +50,11 @@
 
     h1{
       margin:0 0 1.5rem 0;
-      font-size: clamp(20px, 4.2vw, 48px);
+      font-size: clamp(20px, 4.2vw, 48px); /* dopasowuje się do ekranu */
       line-height:1.05;
       letter-spacing:1px;
       color:#fff;
+      /* 'stroke' effect using multiple text-shadows to przypomina minecraftową grubość */
       text-shadow:
         -2px -2px 0 #000,
         2px -2px 0 #000,
@@ -82,6 +87,14 @@
       display:block;
     }
 
+    footer{
+      text-align:center;
+      font-family: Arial, sans-serif;
+      font-size:12px;
+      padding:1rem;
+      background:rgba(0,0,0,0.55);
+    }
+
     @media (max-width:420px){
       .card{padding:2rem 1rem}
       h1{font-size:18px}
@@ -92,10 +105,9 @@
   <div class="overlay">
     <div class="card" role="main">
       <h1>Witaj na oficialnej stronie internetowej Boberkowic!</h1>
-
       <a class="ztm-link" href="https://boberkowice.github.io/ztm" target="_blank" rel="noopener noreferrer">Strona ZTM</a>
-
     </div>
   </div>
+  <footer>©copyright by Mieszko Witaszak 2025</footer>
 </body>
 </html>
